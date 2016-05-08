@@ -1,0 +1,24 @@
+{
+  "name": "art_museum_attendance",
+  "version": "1.0.0",
+  "description": "A small web app to help an art museum track attendance",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmtopp/art_museum_attendance.git"
+  },
+  "author": "Dan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmtopp/art_museum_attendance/issues"
+  },
+  "homepage": "https://github.com/dmtopp/art_museum_attendance#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4"
+  }
+}
