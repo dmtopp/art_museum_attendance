@@ -5,6 +5,13 @@ var express    = require('express'),
     bodyParser = require('body-parser'),
     app        = express();
 
+require('./db/database.js');
+
+// configure our public and views folders
+// ---------------------------
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/views');
+
 // configure our body parser
 // -------------------------
 app.use(bodyParser.json());
