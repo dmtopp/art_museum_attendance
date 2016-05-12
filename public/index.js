@@ -1,5 +1,5 @@
 window.onload = function() {
-  console.log('THE DOM IS LOADED.  HEAD FOR THE HILLS.');
+  console.log('The window is loaded.');
   var inButton = document.querySelector('#in');
   var outButton = document.querySelector('#out');
 

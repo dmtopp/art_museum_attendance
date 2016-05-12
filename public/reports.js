@@ -9,10 +9,11 @@ window.onload = function() {
     if (request.readyState == 4 && request.status == 200) {
       responseData = JSON.parse(request.responseText);
       responseData.forEach(function(attendance) {
-        var date = Date.parse(attendance.date);
-        console.log(typeof(date));
-        var dateTime = date.getHours() + ':' + date.getMinutes() + ' ' + date.getMonth() + '/' +  date.getDay() + '/' +  date.getFullYear();
-        resultsContainer.appendChild('<p>' + attendance.type + '-> ' + dateTime + '</p>');
+        var date = new Date(attendance.date);
+        var dateTime = date.toUTCString();
+        var p = document.createElement('p');
+        p.innerHTML = attendance.type.toUpperCase() + '  ------>  ' + dateTime
+        resultsContainer.appendChild(p);
       })
 
     } else if (request.status != 200) {
