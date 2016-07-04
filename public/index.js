@@ -1,5 +1,4 @@
 window.onload = function() {
-  console.log('The window is loaded.');
   var inButton = document.querySelector('#in');
   var outButton = document.querySelector('#out');
 
@@ -20,11 +19,13 @@ function sendAttendance(type) {
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       var responseData = JSON.parse(request.responseText);
-      console.log(responseData);
+      console.log('response', responseData);
     } else if (request.status != 200) {
       console.log('There was an error with the request!');
     }
   }
-  request.send(JSON.stringify({ type: type }));
+  request.send(JSON.stringify({ type: type,
+                                location: 'EAST',
+                                user: 'Dan' }));
 
 }

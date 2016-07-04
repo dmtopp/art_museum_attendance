@@ -5,16 +5,10 @@ html, body {
   height: 100%;
 }
 
-.container {
-  padding: 20px;
-}
-
 #in {
-  height: 300px;
-  margin-bottom: 50px;
-  margin-top: 20px;
+  height: 40%;
 }
 
 #out {
-  height: 300px;
+  height: 40%;
 }
