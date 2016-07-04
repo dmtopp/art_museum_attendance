@@ -12,24 +12,38 @@
       <div class="row">
         <div class="col-xs-12">
           <button type="button" id="in" class="btn btn-success btn-lg btn-block" name="button">In</button>
+          <h3 id="num-in"></h3>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
           <button type="button" id="out" class="btn btn-danger btn-lg btn-block" name="button">Out</button>
+          <h3 id="num-out"></h3>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
-          <a href="/attendance/reports">See All Attendance</a>
+          <a href="/attendance/reports"><button class="btn">See All Attendance</button></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h5>You are signed in as <span id="current-name"></span></h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h5>Your location is <span id="current-location"></span></h5>
         </div>
       </div>
 
 
 
     </div>
-    <script src="/index.js" charset="utf-8"></script>
+    <script src="/buttons.js" charset="utf-8"></script>
   </body>
 </html>

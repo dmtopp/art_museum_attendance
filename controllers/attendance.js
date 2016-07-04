@@ -6,9 +6,12 @@ var express    = require('express'),
 
 controller.route('/new')
   .post(function(req, res, next) {
+    console.log(req.body);
     var attendanceData = {
       type: req.body.type,
-      date: Date.now()
+      date: Date.now(),
+      user: req.body.user,
+      location: req.body.location
     }
 
     var message;
@@ -20,9 +23,13 @@ controller.route('/new')
 
     Attendance.create(attendanceData)
       .then(function(err, attendance) {
-        return Attendance.find({ "date" : { "$gte": beginningOfToday, "$lt": endOfToday } });
+        return Attendance.find({ "date" : { "$gte": beginningOfToday, "$lt": endOfToday },
+                                 "type" : req.body.type,
+                                 "location" : req.body.location,
+                                 "user" : req.body.user });
       })
       .then(function(dates) {
+        console.log(dates);
         message = 'Success!  New attendance created.';
         res.json({
           message: message,

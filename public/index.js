@@ -1,14 +1,16 @@
 window.onload = function() {
-  var inButton = document.querySelector('#in');
-  var outButton = document.querySelector('#out');
+  console.log('hello from index');
+  var location = document.querySelector('#location');
+  var name = document.querySelector('#name');
 
-  inButton.addEventListener('click', function(e) {
-    sendAttendance(e.target.id);
+  location.addEventListener('change', function(e) {
+    sessionStorage.setItem('location', e.target.value);
   })
 
-  outButton.addEventListener('click', function(e) {
-    sendAttendance(e.target.id);
+  name.addEventListener('change', function(e) {
+    sessionStorage.setItem('name', e.target.value);
   })
+
 }
 
 function sendAttendance(type) {
