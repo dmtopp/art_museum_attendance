@@ -5,29 +5,25 @@ html, body {
   height: 100%;
 }
 
-#in {
-  /*height: 40%;*/
+.margin-top {
   margin-top: 5%;
+}
+
+.margin-bottom {
   margin-bottom: 5%;
 }
 
-#out {
-  /*height: 40%;*/
-  margin-bottom: 5%;
-}
-
-#num-in, #num-out {
+.float-right {
   float: right;
 }
 
 .container-fluid {
   height: 100%;
-  background-image: url(https://brightviolet.files.wordpress.com/2008/11/img_0464.jpg);
+  background-image: url(/art_museum.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  /*align-content: space-around;*/
   flex-direction: column;
   justify-content: center;
 }
