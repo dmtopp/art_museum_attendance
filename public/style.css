@@ -6,9 +6,43 @@ html, body {
 }
 
 #in {
-  height: 40%;
+  /*height: 40%;*/
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 #out {
-  height: 40%;
+  /*height: 40%;*/
+  margin-bottom: 5%;
+}
+
+#num-in, #num-out {
+  float: right;
+}
+
+.container-fluid {
+  height: 100%;
+  background-image: url(https://brightviolet.files.wordpress.com/2008/11/img_0464.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  /*align-content: space-around;*/
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row {
+  background-color: rgba(255, 255, 255, 0.8);
+
+}
+
+@media screen and (min-device-width: 1200px) {
+  .container-fluid {
+    max-width: 80%;
+  }
+
+  #in, #out {
+    width: 80%;
+  }
 }
