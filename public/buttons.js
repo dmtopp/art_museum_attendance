@@ -7,10 +7,13 @@ window.onload = function() {
   document.querySelector('#current-location').innerHTML = sessionStorage.getItem('location');
 
   inButton.addEventListener('click', function(e) {
+    if (e.target.id != 'in') return;
     sendAttendance(e.target.id);
   })
 
   outButton.addEventListener('click', function(e) {
+    if (e.target.id != 'out') return;
+    e.stopPropagation();
     sendAttendance(e.target.id);
   })
 
@@ -48,6 +51,12 @@ function deleteLastAttendance() {
 }
 
 function sendAttendance(type) {
+  var attendType;
+
+  if (type === 'in' || 'num-in') {
+    attendType = 'in';
+  } else attendType = 'out';
+
   var request = new XMLHttpRequest();
   request.open('POST', '/attendance/new', true);
   request.setRequestHeader('Content-Type', 'application/json');

@@ -23,21 +23,3 @@ window.onload = function() {
   })
 
 }
-
-// function sendAttendance(type) {
-//   var request = new XMLHttpRequest();
-//   request.open('POST', '/attendance/new', true);
-//   request.setRequestHeader('Content-Type', 'application/json');
-//
-//   request.onreadystatechange = function () {
-//     if (request.readyState == 4 && request.status == 200) {
-//       var responseData = JSON.parse(request.responseText);
-//     } else if (request.status != 200) {
-//       console.log('There was an error with the request!');
-//     }
-//   }
-//   request.send(JSON.stringify({ type: type,
-//                                 location: 'EAST',
-//                                 user: 'Dan' }));
-//
-// }
