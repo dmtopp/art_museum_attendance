@@ -85,6 +85,32 @@ controller.route('/new')
       });
   })
 
+controller.route('/delete-last')
+  .post(function(req, res, next) {
+    var beginningOfToday = new Date().setHours(0, 0, 0, 0);
+    var endOfToday = new Date().setHours(23, 59, 59, 999);
+    var deleteId;
+
+    Attendance.findOneAndRemove({ "date" : { "$gte": beginningOfToday, "$lt": endOfToday },
+                                  "location": req.body.location,
+                                  "user": req.body.user },
+                                { sort: { date: "asc" } })
+      .then(function(attend) {
+        return Attendance.find({ "date" : { "$gte": beginningOfToday, "$lt": endOfToday },
+                                 "location" : req.body.location,
+                                 "user" : req.body.user });
+      }, function(err) {
+        console.log(err);
+      })
+      .then(function(dates) {
+        message = 'Success!  Attendance removed.';
+        res.json({
+          message: message,
+          attendance: dates
+        });
+      });
+  })
+
 controller.route('/all')
   .get(function(req, res, next) {
     sendCsvEmail();
