@@ -2,7 +2,8 @@ var express    = require('express'),
     controller = express.Router(),
     mongoose   = require('mongoose'),
     Attendance = require('../models/Attendance'),
-    path       = require('path');
+    path       = require('path'),
+    nodemailer = require('nodemailer');
 
 controller.route('/new')
   .post(function(req, res, next) {
@@ -40,6 +41,28 @@ controller.route('/new')
 
 controller.route('/all')
   .get(function(req, res, next) {
+    var smtpConfig = {
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // use SSL
+      auth: {
+          user: 'user@gmail.com',
+          pass: 'pass'
+      }
+    };
+    var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL + '%40gmail.com:' + process.env.EMAILPWD + '@smtp.gmail.com');
+    var mailOptions = {
+      from: 'Art Museum Attendance',
+      to: 'dmtopp@gmail.com',
+      subject: 'Test mail',
+      text: 'Attached is the art musuem attendance for the last week.  Cheers!'
+    }
+
+    transporter.sendMail(mailOptions, function(error, info) {
+      if (error) console.log(error);
+      else console.log(info);
+    });
+
     Attendance.find(function(err, attends) {
       if (err) console.log(err);
       else res.json(attends);
@@ -48,7 +71,6 @@ controller.route('/all')
 
 controller.route('/reports')
   .get(function(req, res, next) {
-    // console.log(path.dirname() + '../');
     res.sendFile(path.join(__dirname, '../views/reports.html'));
   })
 
