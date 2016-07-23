@@ -24,7 +24,7 @@ function sendCsvEmail() {
   var mailOptions = {
     from: 'Art Museum Attendance',
     to: process.env.EMAIL_RECIPIENT,
-    subject: 'Test mail',
+    subject: 'Attendance reports for the week',
     text: 'Attached is the art musuem attendance for the last week.  Cheers!',
     attachments: [{
       filename: 'Attendance ' + oneWeekAgo.getMonth() + '/' + oneWeekAgo.getDate() + ' to ' + today.getMonth() + '/' + today.getDate() + '.csv',
