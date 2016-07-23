@@ -34,3 +34,6 @@ node_modules
 
 # Ignore our secret variables
 .env
+
+# File output to be sent via email
+out.csv
