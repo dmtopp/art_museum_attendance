@@ -38,7 +38,7 @@ html, body {
     max-width: 80%;
   }
 
-  #in, #out {
+  #in, #out, #undo {
     width: 80%;
   }
 }
