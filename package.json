@@ -18,9 +18,12 @@
   "homepage": "https://github.com/dmtopp/art_museum_attendance#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "csv-write-stream": "^2.0.0",
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "mongoose": "^4.4.15",
+    "node-schedule": "^1.1.1",
+    "nodemailer": "^2.5.0",
     "path": "^0.12.7"
   }
 }
