@@ -94,7 +94,7 @@ controller.route('/delete-last')
     Attendance.findOneAndRemove({ "date" : { "$gte": beginningOfToday, "$lt": endOfToday },
                                   "location": req.body.location,
                                   "user": req.body.user },
-                                { sort: { date: "asc" } })
+                                { sort: { date: "desc" } })
       .then(function(attend) {
         return Attendance.find({ "date" : { "$gte": beginningOfToday, "$lt": endOfToday },
                                  "location" : req.body.location,
